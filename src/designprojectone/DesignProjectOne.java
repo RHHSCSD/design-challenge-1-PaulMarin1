@@ -9,7 +9,7 @@ import java.text.*;
 *  Program: Tech Fair Cost Calculator
 *  Author: Paul Marin
 *  Date: 2024/03/08
-*  Description: Calculates the price of an admission ticket given the manufactures dubious criteria
+*  Description: Calculates the price of an admission ticket given the manufacturers dubious criteria
 ****************************************************/
 
 /**************** IPO CHART ************************
@@ -38,10 +38,6 @@ import java.text.*;
 * 7       1,2,3         $66.67
 ***************************************************/
 public class DesignProjectOne {
-
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
   //Write Pseudocode FIRST as comments and THEN write the code
   /*
