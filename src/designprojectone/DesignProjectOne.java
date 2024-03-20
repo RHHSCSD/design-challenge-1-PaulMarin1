@@ -6,7 +6,6 @@ package designprojectone;
 import java.util.*;
 import java.text.*;
 /***************************************************
-*
 *  Program: Tech Fair Cost Calculator
 *  Author: Paul Marin
 *  Date: 2024/03/08
@@ -30,13 +29,13 @@ import java.text.*;
   
 /**************** TEST CASES ************************
 *Test      Input      Desired Output
-* 1       15,15,15      $66.67
+* 1       15,15,15      $65.00
 * 2       0,0,100       $70.00  
-* 3       100,25,0      $54.60
-* 4
-* 5
-* 6
-* 7
+* 3       100,25,0      $57.10
+* 4       0,0,0         Nobody is attending the tech fair
+* 5       500,500,500   $61.17
+* 6       34,56,12      $59.44
+* 7       1,2,3         $66.67
 ***************************************************/
 public class DesignProjectOne {
 
@@ -48,14 +47,17 @@ public class DesignProjectOne {
   /*
   Get input from the user (number of arduino, rasberry PI and Vr projects)
   Calculate total number of students
-  Check if there are over 100 students and apply discount
-  Calculate the price of each project keeping in mind the discount
+  Check if there are over 100 students.
+  Apply discount
+  Calculate the price of each project 
   Calculate the total cost
-  Divide total cost by number of students to find out price per person
-  Ouput final ticket price
-  */     
+  Divide total cost by number of students
+  Output final ticket price
+  */ 
+  
   //CONSTANTS
   final double FIVE_DISCOUNT = 0.95;
+  
   //VARIABLES
   Scanner kb = new Scanner(System.in);
   DecimalFormat df = new DecimalFormat("#.00");
@@ -69,10 +71,10 @@ public class DesignProjectOne {
   int costVr = 0;
   double total = 0;
   double price = 0;
+  
   //CODE
   
   // Get input from the user
-  
   System.out.print("Enter the number of students doing the arduino project: ");
   arduino = kb.nextInt();
   System.out.print("Enter the number of students doing the Raspberry PI project: ");
@@ -90,8 +92,8 @@ public class DesignProjectOne {
   if (students > 100){
       fixedCost = fixedCost * FIVE_DISCOUNT;
   }
+  
   // Check if arduino and/or rasberry are elgible for the discount and calculate cost
-    
   if (arduino > 15){
       costArduino = arduino * 9;
   }
@@ -108,10 +110,12 @@ public class DesignProjectOne {
   // Calculate cost of vr projects
   costVr = vr * 20;
   
-  // Calculate total cost and price per student
+  // Calculate total cost
   total = ((students * fixedCost) + costArduino + costRaspberry + costVr);
+  
   // Find price per ticket
   price = total/students;
+  
   // Output price per ticket
   System.out.println("Each student must pay $" + df.format(price) + " to attend the tech fair!");
   }
